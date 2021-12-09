@@ -1,0 +1,66 @@
+
+
+<button [routerLink]="['/']">Home</button>
+
+
+<button [routerLink]="['/products']">Product List</button>
+
+
+<button [routerLink]="['/products/new']">Product Creation</button>
+
+<h1>Edit Product</h1>
+
+<div *ngIf="errors" id="error_message">
+
+
+    <p *ngIf="errors.title">{{errors.title.message}}</p>
+    <p *ngIf="errors.price">{{errors.price.message}}</p>
+</div>
+
+
+
+
+<form (submit)="updateProduct()">
+Name: <input type="text" 
+
+
+    name="title"
+    required 
+    minlength="4"
+    [(ngModel)] = 'product.title'>
+    
+
+
+
+    <br>
+    
+
+
+    Price: <input type="text" 
+    name="price" 
+    required
+
+
+    [(ngModel)] = 'product.price'>
+    
+    <br>
+
+
+    
+    Image: <input type="text" 
+
+
+
+    name="image"
+    minlength="3"
+    [(ngModel)] = 'product.image'>
+
+
+
+
+    <input type="submit"
+    value="Update">
+</form>
+
+
+    <button (click)="deleteProduct(product._id)">Delete</button>

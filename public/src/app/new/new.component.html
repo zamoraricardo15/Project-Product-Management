@@ -1,0 +1,72 @@
+
+
+<button [routerLink]="['/']">Home</button>
+
+
+<button [routerLink]="['/products']">Product List</button>
+
+
+
+<button [routerLink]="['/products/new']">Product Creation</button>
+
+
+
+<h1>Create a New Product</h1>
+
+<div *ngIf="errors" id="error_message">
+    <p *ngIf="errors.title">{{errors.title.message}}</p>
+    <p *ngIf="errors.price">{{errors.price.message}}</p>
+
+
+
+</div>
+
+<form (submit)="newProduct()">
+
+
+    
+    Title:<input type="text"
+    name="title"
+    required 
+    minlength="4"
+
+
+
+    [(ngModel)] = 'product.title'
+    #title = "ngModel"
+    > 
+
+    Price:<input type="text"
+
+
+    name="price"
+    required 
+    [(ngModel)] = 'product.price'
+    #price = "ngModel"
+
+
+    > 
+
+    Image url: <input type="text"
+
+
+
+    name="image"
+    minlength="3"
+    [(ngModel)] = 'product.image'
+
+
+    #image = "ngModel"
+    >
+    <br>
+    <p>
+        <input type="submit" value="Create">
+
+
+        
+    </p>
+    
+</form>
+<br>
+<button (click)="cancel()">Cancel</button>
+
